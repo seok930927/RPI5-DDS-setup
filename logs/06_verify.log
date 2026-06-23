@@ -1,0 +1,23 @@
+==== 검증 빌드 시작: Tue 23 Jun 02:20:27 BST 2026 ====
+-- The C compiler identification is GNU 12.2.0
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/lihan/fastdds_ws/smoketest/build
+[ 50%] Building CXX object CMakeFiles/smoketest.dir/main.cpp.o
+[100%] Linking CXX executable smoketest
+[100%] Built target smoketest
+---- 실행 ----
+OK: DomainParticipant created on domain 0
+exit=0
+==== 검증 끝: Tue 23 Jun 02:20:31 BST 2026 ====

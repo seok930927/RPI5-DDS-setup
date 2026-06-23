@@ -1,0 +1,6 @@
+==== Fast DDS 소스빌드 환경 기록 ====
+date: Tue 23 Jun 02:09:33 BST 2026
+host: Linux raspberrypi 6.12.34+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.34-1+rpt1~bookworm (2025-06-26) aarch64 GNU/Linux
+cores: 4 / mem: 7.9Gi
+workspace: /home/lihan/fastdds_ws
+install prefix: /usr/local
