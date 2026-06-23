@@ -146,6 +146,29 @@ PASS 11 / 11
 
 > Wireshark로 패킷을 보려면, auto_pub/auto_sub 실행 전에 캡처를 시작해두면 각 시나리오의 SPDP/SEDP/DATA/HEARTBEAT/ACKNACK가 시간순으로 잡힌다.
 
+### 패킷 캡처까지 자동으로 (run_with_capture.sh)
+
+공유기 포트 미러링이 **인터넷(WAN) 트래픽만** 미러하는 경우(일반 가정용 공유기) RPI 간 LAN 유니캐스트(DATA/HEARTBEAT/ACKNACK)는 모니터링 PC에서 안 잡힌다.
+→ **각 RPI에서 직접 tcpdump로 캡처**하면 그 노드가 주고받는 모든 RTPS가 100% 잡힌다. 이를 자동화한 래퍼:
+
+```bash
+# 사전: tcpdump 설치 (한 번만)
+sudo apt-get install -y tcpdump
+
+# RPI5: 캡처와 함께 팔로워 실행
+./run_with_capture.sh auto_sub
+# RPI4: 캡처와 함께 오케스트레이터 실행
+./run_with_capture.sh auto_pub
+```
+- 캡처 시작 → 프로그램 실행 → 종료(또는 Ctrl+C) 시 자동 정지·저장
+- 저장 위치: `captures/dds_<role>_<host>_<날짜>.pcap` (패킷 전체 `-s 0`)
+- 끝나면 RTPS/DATA/HEARTBEAT/ACKNACK 개수 요약 출력 (tshark 있을 때)
+- 환경변수: `IFACE=eth0`(기본), `FILTER='udp'`(기본, 모든 DDS)
+- 만들어진 `.pcap`는 Wireshark에서 `rtps` 필터로 바로 분석 가능
+
+> 미러링이 LAN 유니캐스트를 잡는 관리형 스위치라면 모니터링 PC Wireshark로 봐도 되지만,
+> 인터넷 전용 미러밖에 없으면 이 방식이 유일하게 확실하다.
+
 ---
 
 ## (수동) 개별 실행용 publisher / subscriber
