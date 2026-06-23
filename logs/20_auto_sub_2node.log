@@ -1,0 +1,26 @@
+==== RPI5 auto_sub 재실행(2노드, domain 0): Tue 23 Jun 06:05:45 BST 2026 ====
+[SUB-RUNNER] 시작. RPI4(auto_pub)의 명령 대기 중... (domain=0)
+[SUB-RUNNER] [1-1/2-1] Reader 생성 (rel=re dur=v his=kl depth=10) → READY
+[SUB-RUNNER] [1-1/2-1] STOP. 수신=10 → 결과 회신
+[SUB-RUNNER] [2-2] Reader 생성 (rel=re dur=v his=kl depth=10) → READY
+[SUB-RUNNER] [2-2] STOP. 수신=10 → 결과 회신
+[SUB-RUNNER] [3-1-BE] Reader 생성 (rel=be dur=v his=kl depth=10) → READY
+[SUB-RUNNER] [3-1-BE] STOP. 수신=10 → 결과 회신
+[SUB-RUNNER] [3-1-RE] Reader 생성 (rel=re dur=v his=kl depth=10) → READY
+[SUB-RUNNER] [3-1-RE] STOP. 수신=10 → 결과 회신
+[SUB-RUNNER] [3-2-VOL] Reader 생성 (rel=re dur=v his=kl depth=10) → READY
+[SUB-RUNNER] [3-2-VOL] STOP. 수신=0 → 결과 회신
+[SUB-RUNNER] [3-2-TL] Reader 생성 (rel=re dur=tl his=kl depth=10) → READY
+[SUB-RUNNER] [3-2-TL] STOP. 수신=10 → 결과 회신
+[SUB-RUNNER] [3-3-KL5] Reader 생성 (rel=re dur=tl his=kl depth=5) → READY
+[SUB-RUNNER] [3-3-KL5] STOP. 수신=5 → 결과 회신
+[SUB-RUNNER] [3-3-KA] Reader 생성 (rel=re dur=tl his=ka depth=10) → READY
+[SUB-RUNNER] [3-3-KA] STOP. 수신=20 → 결과 회신
+[SUB-RUNNER] [3-4-a] Reader 생성 (rel=re dur=v his=kl depth=10) → READY
+[SUB-RUNNER] [3-4-a] STOP. 수신=0 → 결과 회신
+[SUB-RUNNER] [3-4-b] Reader 생성 (rel=re dur=tl his=kl depth=10) → READY
+[SUB-RUNNER] [3-4-b] STOP. 수신=0 → 결과 회신
+[SUB-RUNNER] [3-4-c] Reader 생성 (rel=be dur=v his=kl depth=10) → READY
+[SUB-RUNNER] [3-4-c] STOP. 수신=10 → 결과 회신
+[SUB-RUNNER] QUIT 수신. 종료.
+==== auto_sub 종료(exit=0): Tue 23 Jun 06:07:14 BST 2026 ====
