@@ -104,6 +104,54 @@ cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build --parallel $(np
 
 ---
 
+---
+
+## ★ 자동 시나리오 러너 (한 번 켜두면 전부 자동 진행)
+
+수동으로 시나리오마다 옵션을 바꿔 실행하는 대신, **두 기기에서 한 번씩만 실행하면 11개 시나리오가 순서대로 자동 진행**되고 마지막에 PASS/FAIL 결과표가 나온다.
+
+- **RPI4 = `auto_pub`** (오케스트레이터: 시나리오 목록을 갖고 지휘)
+- **RPI5 = `auto_sub`** (팔로워: 명령 받아 QoS별 Reader 생성·수신·회신)
+- 별도 **제어 토픽(DDSTestControl)** 으로 동기화. RPI4가 진행/정지 신호를 보내고 RPI5가 결과를 회신.
+
+### 실행 (RPI5 먼저, RPI4 나중)
+```bash
+# RPI5
+./build/auto_sub
+# RPI4 (5초 뒤 자동 시작)
+./build/auto_pub
+```
+> 같은 도메인이어야 함. 다른 테스트와 섞이지 않게 하려면 양쪽에 `--domain N` 동일 지정.
+
+### 자동 진행되는 시나리오 (11개)
+1-1/2-1 기본통신 · 2-2 HEARTBEAT/ACKNACK · 3-1 BE/RE · 3-2 VOLATILE/TRANSIENT_LOCAL(늦은조인) ·
+3-3 KEEP_LAST(d5)/KEEP_ALL(늦은조인) · 3-4 Mismatch(BE/RE, VOL/TL)/Compatible(RE/BE)
+
+### 결과 예시 (RPI5 단독 loopback 검증, 2026-06-23)
+```
+시나리오     설명                          수신  기대  판정
+1-1/2-1     기본통신·Discovery             10    10   PASS
+2-2         HEARTBEAT/ACKNACK(RELIABLE)    10    10   PASS
+3-1-BE      Reliability BEST_EFFORT        10    10   PASS
+3-1-RE      Reliability RELIABLE           10    10   PASS
+3-2-VOL     Durability VOLATILE(늦은조인)   0     0   PASS
+3-2-TL      Durability TRANSIENT_LOCAL      10    10   PASS
+3-3-KL5     History KEEP_LAST depth=5        5     5   PASS
+3-3-KA      History KEEP_ALL               20    20   PASS
+3-4-a       Mismatch Pub=BE/Sub=RE          0     0   PASS
+3-4-b       Mismatch Pub=VOL/Sub=TL         0     0   PASS
+3-4-c       Compatible Pub=RE/Sub=BE       10    10   PASS
+PASS 11 / 11
+```
+
+> Wireshark로 패킷을 보려면, auto_pub/auto_sub 실행 전에 캡처를 시작해두면 각 시나리오의 SPDP/SEDP/DATA/HEARTBEAT/ACKNACK가 시간순으로 잡힌다.
+
+---
+
+## (수동) 개별 실행용 publisher / subscriber
+
+아래는 시나리오를 하나씩 직접 돌려보고 싶을 때 쓰는 단순 버전이다.
+
 ## RPI5 단독 검증 결과 (2026-06-23)
 - RELIABLE 양쪽: 매칭=1, 5/5 수신 ✅
 - Mismatch(BE/RE): 매칭 안 됨, 0개 (조용한 실패) ✅
