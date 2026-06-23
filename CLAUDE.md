@@ -21,7 +21,7 @@ Windows PC의 Wireshark로 RTPS 패킷(Discovery/QoS 등)을 분석하는 프로
 | 기기 | 역할 | IP | 상태 |
 |------|------|-----|------|
 | RPI5 | Subscriber | `192.168.11.211` | ✅ Fast DDS 설치·검증 완료 |
-| RPI4 | Publisher | `192.168.11.6` | ⬜ **아직 설치 안 됨 (= 지금 할 일)** |
+| RPI4 | Publisher | `192.168.11.6` | ✅ Fast DDS 설치·단독검증·2노드 통신 완료 (STEP1~3, 2026-06-23) |
 | Windows PC | Wireshark 캡처 | - | 포트 미러링 |
 
 ## 3. 지금까지 된 것 (RPI5)

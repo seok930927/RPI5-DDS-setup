@@ -1,0 +1,86 @@
+===== Fast-CDR v2.3.6 build/install (RPI4) — Tue 23 Jun 04:20:37 BST 2026 =====
+-- Tests not compiled by default
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring Fast CDR
+-- Version: 2.3.6
+-- Performing Test SUPPORTS_NOTFOUND
+-- Performing Test SUPPORTS_NOTFOUND - Success
+-- Enforced cxx_std_11 CMake feature
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include stdint.h
+-- Looking for C++ include stdint.h - found
+-- Looking for C++ include stddef.h
+-- Looking for C++ include stddef.h - found
+-- Check size of long double
+-- Check size of long double - done
+-- Check size of __float128
+-- Check size of __float128 - failed
+-- The C compiler identification is GNU 12.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/lihan/fastdds_ws/Fast-CDR/build
+--- configure rc=0 ---
+[ 10%] Building CXX object src/cpp/CMakeFiles/fastcdr.dir/Cdr.cpp.o
+[ 20%] Building CXX object src/cpp/CMakeFiles/fastcdr.dir/CdrSizeCalculator.cpp.o
+[ 30%] Building CXX object src/cpp/CMakeFiles/fastcdr.dir/FastCdr.cpp.o
+[ 40%] Building CXX object src/cpp/CMakeFiles/fastcdr.dir/FastBuffer.cpp.o
+[ 50%] Building CXX object src/cpp/CMakeFiles/fastcdr.dir/exceptions/BadOptionalAccessException.cpp.o
+[ 60%] Building CXX object src/cpp/CMakeFiles/fastcdr.dir/exceptions/BadParamException.cpp.o
+[ 70%] Building CXX object src/cpp/CMakeFiles/fastcdr.dir/exceptions/Exception.cpp.o
+[ 80%] Building CXX object src/cpp/CMakeFiles/fastcdr.dir/exceptions/LockedExternalAccessException.cpp.o
+[ 90%] Building CXX object src/cpp/CMakeFiles/fastcdr.dir/exceptions/NotEnoughMemoryException.cpp.o
+[100%] Linking CXX shared library libfastcdr.so
+[100%] Built target fastcdr
+--- build rc=0 ---
+-- Install configuration: "Release"
+-- Installing: /usr/local/include/fastcdr
+-- Installing: /usr/local/include/fastcdr/exceptions
+-- Installing: /usr/local/include/fastcdr/exceptions/LockedExternalAccessException.hpp
+-- Installing: /usr/local/include/fastcdr/exceptions/NotEnoughMemoryException.h
+-- Installing: /usr/local/include/fastcdr/exceptions/BadOptionalAccessException.hpp
+-- Installing: /usr/local/include/fastcdr/exceptions/BadParamException.h
+-- Installing: /usr/local/include/fastcdr/exceptions/Exception.h
+-- Installing: /usr/local/include/fastcdr/Cdr.h
+-- Installing: /usr/local/include/fastcdr/CdrEncoding.hpp
+-- Installing: /usr/local/include/fastcdr/CdrSizeCalculator.hpp
+-- Installing: /usr/local/include/fastcdr/config
+-- Installing: /usr/local/include/fastcdr/config/doxygen_modules.h
+-- Installing: /usr/local/include/fastcdr/fastcdr_dll.h
+-- Installing: /usr/local/include/fastcdr/xcdr
+-- Installing: /usr/local/include/fastcdr/xcdr/optional.hpp
+-- Installing: /usr/local/include/fastcdr/xcdr/external.hpp
+-- Installing: /usr/local/include/fastcdr/xcdr/MemberId.hpp
+-- Installing: /usr/local/include/fastcdr/xcdr/detail
+-- Installing: /usr/local/include/fastcdr/xcdr/detail/optional.hpp
+-- Installing: /usr/local/include/fastcdr/FastCdr.h
+-- Installing: /usr/local/include/fastcdr/eProsima_auto_link.h
+-- Installing: /usr/local/include/fastcdr/cdr
+-- Installing: /usr/local/include/fastcdr/cdr/fixed_size_string.hpp
+-- Installing: /usr/local/include/fastcdr/detail
+-- Installing: /usr/local/include/fastcdr/detail/container_recursive_inspector.hpp
+-- Installing: /usr/local/include/fastcdr/FastBuffer.h
+-- Installing: /usr/local/include/fastcdr/config.h
+-- Installing: /usr/local/lib/libfastcdr.so.2.3.6
+-- Installing: /usr/local/lib/libfastcdr.so.2
+-- Installing: /usr/local/lib/libfastcdr.so
+-- Installing: /usr/local/lib/cmake/fastcdr/fastcdr-shared-targets.cmake
+-- Installing: /usr/local/lib/cmake/fastcdr/fastcdr-shared-targets-release.cmake
+-- Installing: /usr/local/lib/cmake/fastcdr/fastcdr-config.cmake
+-- Installing: /usr/local/lib/cmake/fastcdr/fastcdr-config-version.cmake
+-- Installing: /usr/local/share/fastcdr/LICENSE
+--- install+ldconfig rc=0 ---
+===== done =====
+lrwxrwxrwx 1 root root     15 Jun 23 04:20 /usr/local/lib/libfastcdr.so -> libfastcdr.so.2
+lrwxrwxrwx 1 root root     19 Jun 23 04:20 /usr/local/lib/libfastcdr.so.2 -> libfastcdr.so.2.3.6
+-rw-r--r-- 1 root root 161664 Jun 23 04:20 /usr/local/lib/libfastcdr.so.2.3.6

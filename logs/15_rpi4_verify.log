@@ -1,0 +1,12 @@
+===== RPI4 smoke test (DomainParticipant) — Tue 23 Jun 04:59:34 BST 2026 =====
+--- ldconfig check ---
+	libfastdds.so.3.6 (libc6,AArch64) => /usr/local/lib/libfastdds.so.3.6
+	libfastdds.so (libc6,AArch64) => /usr/local/lib/libfastdds.so
+	libfastcdr.so.2 (libc6,AArch64) => /usr/local/lib/libfastcdr.so.2
+	libfastcdr.so (libc6,AArch64) => /usr/local/lib/libfastcdr.so
+--- compile ---
+compile rc=0
+--- run ---
+OK: DomainParticipant created on domain 0
+run rc=0
+===== done =====

@@ -1,0 +1,23 @@
+[SUB] Subscriber 시작. 데이터 수신 대기...
+[SUB] 매칭 변화: 현재 매칭된 Publisher 수 = 1
+[SUB] 수신(1): index=1 msg="Hello DDS 1"
+[SUB] 수신(2): index=2 msg="Hello DDS 2"
+[SUB] 수신(3): index=3 msg="Hello DDS 3"
+[SUB] 수신(4): index=4 msg="Hello DDS 4"
+[SUB] 수신(5): index=5 msg="Hello DDS 5"
+[SUB] 수신(6): index=6 msg="Hello DDS 6"
+[SUB] 수신(7): index=7 msg="Hello DDS 7"
+[SUB] 수신(8): index=8 msg="Hello DDS 8"
+[SUB] 수신(9): index=9 msg="Hello DDS 9"
+[SUB] 수신(10): index=10 msg="Hello DDS 10"
+[SUB] 수신(11): index=11 msg="Hello DDS 11"
+[SUB] 수신(12): index=12 msg="Hello DDS 12"
+[SUB] 수신(13): index=13 msg="Hello DDS 13"
+[SUB] 수신(14): index=14 msg="Hello DDS 14"
+[SUB] 수신(15): index=15 msg="Hello DDS 15"
+[SUB] 수신(16): index=16 msg="Hello DDS 16"
+[SUB] 수신(17): index=17 msg="Hello DDS 17"
+[SUB] 수신(18): index=18 msg="Hello DDS 18"
+[SUB] 수신(19): index=19 msg="Hello DDS 19"
+[SUB] 수신(20): index=20 msg="Hello DDS 20"
+[SUB] 총 수신 개수 = 20

@@ -1,0 +1,30 @@
+===== STEP3: RPI4 Publisher → RPI5 Subscriber (2-node) — Tue 23 Jun 05:07:48 BST 2026 =====
+[my IP]
+192.168.11.6 
+[run publisher]
+[PUB] Publisher 시작. Subscriber 매칭 대기...
+[PUB] 매칭 변화: 현재 매칭된 Subscriber 수 = 1
+[PUB] 송신: index=1 msg="Hello DDS 1"
+[PUB] 송신: index=2 msg="Hello DDS 2"
+[PUB] 송신: index=3 msg="Hello DDS 3"
+[PUB] 송신: index=4 msg="Hello DDS 4"
+[PUB] 송신: index=5 msg="Hello DDS 5"
+[PUB] 송신: index=6 msg="Hello DDS 6"
+[PUB] 송신: index=7 msg="Hello DDS 7"
+[PUB] 송신: index=8 msg="Hello DDS 8"
+[PUB] 송신: index=9 msg="Hello DDS 9"
+[PUB] 송신: index=10 msg="Hello DDS 10"
+[PUB] 송신: index=11 msg="Hello DDS 11"
+[PUB] 송신: index=12 msg="Hello DDS 12"
+[PUB] 송신: index=13 msg="Hello DDS 13"
+[PUB] 송신: index=14 msg="Hello DDS 14"
+[PUB] 송신: index=15 msg="Hello DDS 15"
+[PUB] 송신: index=16 msg="Hello DDS 16"
+[PUB] 송신: index=17 msg="Hello DDS 17"
+[PUB] 송신: index=18 msg="Hello DDS 18"
+[PUB] 송신: index=19 msg="Hello DDS 19"
+[PUB] 송신: index=20 msg="Hello DDS 20"
+[PUB] 매칭 변화: 현재 매칭된 Subscriber 수 = 0
+[PUB] 20개 송신 완료.
+publisher rc=0
+===== done — Tue 23 Jun 05:07:54 BST 2026 =====

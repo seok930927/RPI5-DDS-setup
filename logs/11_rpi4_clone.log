@@ -1,0 +1,46 @@
+===== RPI4 source clone — Tue 23 Jun 04:18:53 BST 2026 =====
+--- workdir: /home/lihan/fastdds_ws ---
+Cloning into 'foonathan_memory_vendor'...
+Cloning into 'Fast-CDR'...
+Note: switching to 'd7219391608ae8cd7971e761206dc020098bacb3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Cloning into 'Fast-DDS'...
+Note: switching to '4e81e8b71bcd6e7c5213c000503cba8e49d6022a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+===== clone done =====
+total 20
+drwxr-xr-x  5 lihan lihan 4096 Jun 23 04:18 .
+drwx------ 19 lihan lihan 4096 Jun 23 04:18 ..
+drwxr-xr-x 11 lihan lihan 4096 Jun 23 04:18 Fast-CDR
+drwxr-xr-x 15 lihan lihan 4096 Jun 23 04:19 Fast-DDS
+drwxr-xr-x  3 lihan lihan 4096 Jun 23 04:18 foonathan_memory_vendor

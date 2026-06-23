@@ -1,0 +1,25 @@
+===== RPI4 standalone pub/sub test — Tue 23 Jun 05:00:49 BST 2026 =====
+[start subscriber in background]
+[start publisher]
+publisher rc=0
+subscriber rc=0
+===== test done — Tue 23 Jun 05:00:58 BST 2026 =====
+
+----- PUB tail -----
+[PUB] 송신: index=15 msg="Hello DDS 15"
+[PUB] 송신: index=16 msg="Hello DDS 16"
+[PUB] 송신: index=17 msg="Hello DDS 17"
+[PUB] 송신: index=18 msg="Hello DDS 18"
+[PUB] 송신: index=19 msg="Hello DDS 19"
+[PUB] 송신: index=20 msg="Hello DDS 20"
+[PUB] 매칭 변화: 현재 매칭된 Subscriber 수 = 0
+[PUB] 20개 송신 완료.
+----- SUB tail -----
+[SUB] 수신(14): index=14 msg="Hello DDS 14"
+[SUB] 수신(15): index=15 msg="Hello DDS 15"
+[SUB] 수신(16): index=16 msg="Hello DDS 16"
+[SUB] 수신(17): index=17 msg="Hello DDS 17"
+[SUB] 수신(18): index=18 msg="Hello DDS 18"
+[SUB] 수신(19): index=19 msg="Hello DDS 19"
+[SUB] 수신(20): index=20 msg="Hello DDS 20"
+[SUB] 총 수신 개수 = 20
