@@ -1,0 +1,24 @@
+==== standalone Pub/Sub 빌드 시작: Tue 23 Jun 03:06:06 BST 2026 ====
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/lihan/fastdds_ws/standalone_test/build
+[ 50%] Building CXX object CMakeFiles/subscriber.dir/HelloWorldPubSubTypes.cxx.o
+[ 50%] Building CXX object CMakeFiles/publisher.dir/HelloWorldPubSubTypes.cxx.o
+[ 50%] Building CXX object CMakeFiles/subscriber.dir/subscriber.cpp.o
+[ 50%] Building CXX object CMakeFiles/publisher.dir/publisher.cpp.o
+[ 62%] Building CXX object CMakeFiles/publisher.dir/HelloWorldTypeObjectSupport.cxx.o
+[ 75%] Building CXX object CMakeFiles/subscriber.dir/HelloWorldTypeObjectSupport.cxx.o
+[ 87%] Linking CXX executable publisher
+[100%] Linking CXX executable subscriber
+[100%] Built target subscriber
+[100%] Built target publisher
+rc=0
+-rwxr-xr-x 1 lihan lihan 177592 Jun 23 03:06 build/publisher
+-rwxr-xr-x 1 lihan lihan 177720 Jun 23 03:06 build/subscriber
+==== 끝: Tue 23 Jun 03:06:14 BST 2026 ====
