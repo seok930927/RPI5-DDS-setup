@@ -1,0 +1,59 @@
+===== RPI4 auto_pub run (11 scenarios) — Tue 23 Jun 05:56:59 BST 2026 =====
+192.168.11.6 
+[PUB-RUNNER] RPI5(auto_sub) 연결 대기 (5초)...
+
+================ [1-1/2-1] 기본통신·Discovery ================
+[PUB-RUNNER] [1-1/2-1] 결과: 수신=10 (기대=10)
+
+================ [2-2] HEARTBEAT/ACKNACK(RELIABLE) ================
+[PUB-RUNNER] [2-2] 결과: 수신=10 (기대=10)
+
+================ [3-1-BE] Reliability BEST_EFFORT ================
+[PUB-RUNNER] [3-1-BE] 결과: 수신=10 (기대=10)
+
+================ [3-1-RE] Reliability RELIABLE ================
+[PUB-RUNNER] [3-1-RE] 결과: 수신=10 (기대=10)
+
+================ [3-2-VOL] Durability VOLATILE(늦은조인) ================
+[PUB-RUNNER] (late) 10개 선송신 완료. Sub 조인 요청.
+[PUB-RUNNER] [3-2-VOL] 결과: 수신=0 (기대=0)
+
+================ [3-2-TL] Durability TRANSIENT_LOCAL(늦은조인) ================
+[PUB-RUNNER] (late) 10개 선송신 완료. Sub 조인 요청.
+[PUB-RUNNER] [3-2-TL] 결과: 수신=10 (기대=10)
+
+================ [3-3-KL5] History KEEP_LAST depth=5(늦은조인) ================
+[PUB-RUNNER] (late) 20개 선송신 완료. Sub 조인 요청.
+[PUB-RUNNER] [3-3-KL5] 결과: 수신=5 (기대=5)
+
+================ [3-3-KA] History KEEP_ALL(늦은조인) ================
+[PUB-RUNNER] (late) 20개 선송신 완료. Sub 조인 요청.
+[PUB-RUNNER] [3-3-KA] 결과: 수신=20 (기대=20)
+
+================ [3-4-a] Mismatch Pub=BE/Sub=RE ================
+[PUB-RUNNER] [3-4-a] 결과: 수신=0 (기대=0)
+
+================ [3-4-b] Mismatch Pub=VOL/Sub=TL ================
+[PUB-RUNNER] [3-4-b] 결과: 수신=0 (기대=0)
+
+================ [3-4-c] Compatible Pub=RE/Sub=BE ================
+[PUB-RUNNER] [3-4-c] 결과: 수신=10 (기대=10)
+
+
+=================== 자동 시나리오 결과 요약 ===================
+시나리오 설명                               수신   기대 판정
+1-1/2-1    기본통신·Discovery                  10       10   PASS
+2-2        HEARTBEAT/ACKNACK(RELIABLE)              10       10   PASS
+3-1-BE     Reliability BEST_EFFORT                  10       10   PASS
+3-1-RE     Reliability RELIABLE                     10       10   PASS
+3-2-VOL    Durability VOLATILE(늦은조인)         0        0   PASS
+3-2-TL     Durability TRANSIENT_LOCAL(늦은조인)       10       10   PASS
+3-3-KL5    History KEEP_LAST depth=5(늦은조인)        5        5   PASS
+3-3-KA     History KEEP_ALL(늦은조인)           20       20   PASS
+3-4-a      Mismatch Pub=BE/Sub=RE                    0        0   PASS
+3-4-b      Mismatch Pub=VOL/Sub=TL                   0        0   PASS
+3-4-c      Compatible Pub=RE/Sub=BE                 10       10   PASS
+-------------------------------------------------------------
+PASS 11 / 11
+auto_pub rc=0
+===== done — Tue 23 Jun 05:57:50 BST 2026 =====

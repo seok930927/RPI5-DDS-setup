@@ -1,0 +1,26 @@
+===== RPI4 dds_test build — Tue 23 Jun 05:41:37 BST 2026 =====
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/lihan/Claude/RPI5-DDS-setup/examples/dds_test/build
+configure rc=0
+[ 25%] Building CXX object CMakeFiles/subscriber.dir/subscriber.cpp.o
+[ 25%] Building CXX object CMakeFiles/subscriber.dir/HelloWorldPubSubTypes.cxx.o
+[ 50%] Building CXX object CMakeFiles/publisher.dir/HelloWorldPubSubTypes.cxx.o
+[ 50%] Building CXX object CMakeFiles/publisher.dir/publisher.cpp.o
+[ 62%] Building CXX object CMakeFiles/subscriber.dir/HelloWorldTypeObjectSupport.cxx.o
+[ 75%] Building CXX object CMakeFiles/publisher.dir/HelloWorldTypeObjectSupport.cxx.o
+[ 87%] Linking CXX executable subscriber
+[100%] Linking CXX executable publisher
+[100%] Built target publisher
+[100%] Built target subscriber
+build rc=0
+--- binaries ---
+-rwxr-xr-x 1 lihan lihan 268288 Jun 23 05:42 build/publisher
+-rwxr-xr-x 1 lihan lihan 267472 Jun 23 05:42 build/subscriber
+===== done =====

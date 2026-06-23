@@ -1,0 +1,24 @@
+===== RPI4 dds_test rebuild (auto runner) — Tue 23 Jun 05:54:43 BST 2026 =====
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/lihan/Claude/RPI5-DDS-setup/examples/dds_test/build
+configure rc=0
+[  6%] Building CXX object CMakeFiles/auto_sub.dir/auto_sub.cpp.o
+[ 31%] Built target publisher
+[ 37%] Building CXX object CMakeFiles/auto_pub.dir/auto_pub.cpp.o
+[ 62%] Built target subscriber
+[ 68%] Building CXX object CMakeFiles/auto_sub.dir/HelloWorldPubSubTypes.cxx.o
+[ 75%] Building CXX object CMakeFiles/auto_sub.dir/HelloWorldTypeObjectSupport.cxx.o
+[ 81%] Building CXX object CMakeFiles/auto_pub.dir/HelloWorldPubSubTypes.cxx.o
+[ 87%] Building CXX object CMakeFiles/auto_pub.dir/HelloWorldTypeObjectSupport.cxx.o
+[ 93%] Linking CXX executable auto_sub
+[ 93%] Built target auto_sub
+[100%] Linking CXX executable auto_pub
+[100%] Built target auto_pub
+build rc=0
+--- binaries ---
+-rwxr-xr-x 1 lihan lihan 273296 Jun 23 05:55 build/auto_pub
+-rwxr-xr-x 1 lihan lihan 273600 Jun 23 05:55 build/auto_sub
+-rwxr-xr-x 1 lihan lihan 268288 Jun 23 05:42 build/publisher
+-rwxr-xr-x 1 lihan lihan 267472 Jun 23 05:42 build/subscriber
+===== done =====
