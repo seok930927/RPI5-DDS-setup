@@ -58,8 +58,8 @@ int main()
 
     std::cout << "[SUB] Subscriber 시작. 데이터 수신 대기..." << std::endl;
 
-    // 20개 수신하거나 최대 15초까지 대기
-    for (int i = 0; i < 150 && listener.received.load() < 20; ++i)
+    // 20개 수신하거나 최대 5분(300초)까지 대기 (2노드 테스트 시 양쪽 실행 시차를 위해 넉넉히)
+    for (int i = 0; i < 3000 && listener.received.load() < 20; ++i)
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
