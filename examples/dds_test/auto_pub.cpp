@@ -9,6 +9,7 @@
 #include <fastdds/dds/publisher/DataWriter.hpp>
 #include <fastdds/dds/publisher/Publisher.hpp>
 #include <fastdds/dds/publisher/qos/DataWriterQos.hpp>
+#include <fastdds/dds/publisher/qos/PublisherQos.hpp>
 #include <fastdds/dds/subscriber/DataReader.hpp>
 #include <fastdds/dds/subscriber/DataReaderListener.hpp>
 #include <fastdds/dds/subscriber/SampleInfo.hpp>
@@ -39,6 +40,9 @@ struct Scenario
     bool late;                     // 늦은 조인 (Pub 먼저 송신 후 Sub 조인)
     int expected;
     Check check;
+    std::string pub_part = "";     // Partition QoS (Publisher측)
+    std::string sub_part = "";     // Partition QoS (Subscriber측)
+    std::string filter = "";       // Content filter 식 (Subscriber측, 예: "index > 5")
 };
 
 static std::string field(const std::string& s, const std::string& key)
@@ -78,6 +82,10 @@ int main(int argc, char** argv)
         {"3-4-a",   "Mismatch Pub=BE/Sub=RE",    "be","re", "v","v",  "kl",10, 10, false, 0,  ZERO},
         {"3-4-b",   "Mismatch Pub=VOL/Sub=TL",   "re","re", "v","tl", "kl",10, 10, false, 0,  ZERO},
         {"3-4-c",   "Compatible Pub=RE/Sub=BE",  "re","be", "v","v",  "kl",10, 10, false, 10, NONZERO},
+        // ---- DDS 고유 기능 보강 ----
+        {"4-1-PART-OK","Partition 일치(A=A)",    "re","re", "v","v",  "kl",10, 10, false, 10, NONZERO, "A","A",""},
+        {"4-1-PART-NO","Partition 불일치(A!=B)", "re","re", "v","v",  "kl",10, 10, false, 0,  ZERO,    "A","B",""},
+        {"4-2-CFT",    "ContentFilter index>5",  "re","re", "v","v",  "kl",10, 10, false, 5,  EXACT,   "","","index > 5"},
     };
 
     auto* factory = DomainParticipantFactory::get_instance();
@@ -136,6 +144,7 @@ int main(int argc, char** argv)
         std::cout << "\n================ [" << s.name << "] " << s.desc << " ================" << std::endl;
         std::string runMsg = "CMD:RUN|name=" + s.name + "|rel=" + s.sub_rel + "|dur=" + s.sub_dur +
                              "|his=" + s.his + "|depth=" + std::to_string(s.depth) +
+                             "|part=" + s.sub_part + "|filter=" + s.filter +
                              "|mode=" + (s.late ? "late" : "normal");
 
         DataWriterQos wq = DATAWRITER_QOS_DEFAULT;
@@ -143,6 +152,13 @@ int main(int argc, char** argv)
         wq.durability().kind = durOf(s.pub_dur);
         wq.history().kind = hisOf(s.his);
         if (s.depth > 0) wq.history().depth = s.depth;
+
+        // Partition QoS (Publisher측): 매 시나리오 재설정 (없으면 기본 파티션)
+        PublisherQos pqos;
+        dpub->get_qos(pqos);
+        pqos.partition().clear();
+        if (!s.pub_part.empty()) pqos.partition().push_back(s.pub_part.c_str());
+        dpub->set_qos(pqos);
 
         int count = -1;
 

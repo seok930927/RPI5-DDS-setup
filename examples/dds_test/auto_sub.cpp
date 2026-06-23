@@ -14,6 +14,8 @@
 #include <fastdds/dds/subscriber/SampleInfo.hpp>
 #include <fastdds/dds/subscriber/Subscriber.hpp>
 #include <fastdds/dds/subscriber/qos/DataReaderQos.hpp>
+#include <fastdds/dds/subscriber/qos/SubscriberQos.hpp>
+#include <fastdds/dds/topic/ContentFilteredTopic.hpp>
 #include <fastdds/dds/topic/TypeSupport.hpp>
 
 #include <atomic>
@@ -80,6 +82,7 @@ int main(int argc, char** argv)
     Topic* dataTopic = part->create_topic("HelloWorldTopic", type.get_type_name(), TOPIC_QOS_DEFAULT);
     Subscriber* dsub = part->create_subscriber(SUBSCRIBER_QOS_DEFAULT);
     DataReader* dr = nullptr;
+    ContentFilteredTopic* cft = nullptr;
     CountListener listener;
 
     auto sendCtrl = [&](int idx, const std::string& msg) {
@@ -114,6 +117,8 @@ int main(int argc, char** argv)
                 std::string dur = field(msg, "dur");
                 std::string his = field(msg, "his");
                 int depth = std::atoi(field(msg, "depth").c_str());
+                std::string part_name = field(msg, "part");    // Partition QoS
+                std::string filter = field(msg, "filter");     // Content filter 식
 
                 DataReaderQos q = DATAREADER_QOS_DEFAULT;
                 q.reliability().kind = (rel == "re") ? RELIABLE_RELIABILITY_QOS : BEST_EFFORT_RELIABILITY_QOS;
@@ -121,10 +126,28 @@ int main(int argc, char** argv)
                 q.history().kind = (his == "ka") ? KEEP_ALL_HISTORY_QOS : KEEP_LAST_HISTORY_QOS;
                 if (depth > 0) q.history().depth = depth;
 
+                // Partition QoS: Subscriber 단위. 매 시나리오마다 재설정(없으면 기본 파티션)
+                SubscriberQos sqos;
+                dsub->get_qos(sqos);
+                sqos.partition().clear();
+                if (!part_name.empty()) sqos.partition().push_back(part_name.c_str());
+                dsub->set_qos(sqos);
+
                 listener.received = 0; listener.matched = 0;
-                dr = dsub->create_datareader(dataTopic, q, &listener);
+                if (!filter.empty())
+                {
+                    // Content Filtered Topic: 내용 기반 필터링 (예: index > 5)
+                    cft = part->create_contentfilteredtopic("CFT_" + name, dataTopic, filter, {});
+                    dr = dsub->create_datareader(cft, q, &listener);
+                }
+                else
+                {
+                    dr = dsub->create_datareader(dataTopic, q, &listener);
+                }
                 std::cout << "[SUB-RUNNER] [" << name << "] Reader 생성 (rel=" << rel
-                          << " dur=" << dur << " his=" << his << " depth=" << depth << ") → READY" << std::endl;
+                          << " dur=" << dur << " his=" << his << " depth=" << depth
+                          << " part=" << (part_name.empty() ? "-" : part_name)
+                          << " filter=" << (filter.empty() ? "-" : filter) << ") → READY" << std::endl;
                 sendCtrl(++step, "ACK:READY|name=" + name);
             }
             else if (msg.find("CMD:STOP") == 0)
@@ -134,6 +157,7 @@ int main(int argc, char** argv)
                 std::cout << "[SUB-RUNNER] [" << name << "] STOP. 수신=" << cnt << " → 결과 회신" << std::endl;
                 sendCtrl(++step, "ACK:RES|name=" + name + "|count=" + std::to_string(cnt));
                 if (dr) { dsub->delete_datareader(dr); dr = nullptr; }
+                if (cft) { part->delete_contentfilteredtopic(cft); cft = nullptr; }
             }
         }
         if (!got) std::this_thread::sleep_for(std::chrono::milliseconds(50));
